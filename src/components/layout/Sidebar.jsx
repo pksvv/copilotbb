@@ -1,24 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { getWidgetsByCategory, getWidgetMetadata } from '../../content/config/widgetMetadata';
 
 const Sidebar = () => {
-  const widgetCategories = [
-    {
-      name: 'Tax Widgets',
-      widgets: [
-        { id: 'webpage', title: 'OECD DST Tracker', type: 'webpage', icon: '🌍' },
-        { id: 'file', title: 'Trial Balance FY24', type: 'file', icon: '📂' },
-        { id: 'faq', title: 'Tax FAQ', type: 'faq', icon: '❓' }
-      ]
-    },
-    {
-      name: 'Integration Widgets',
-      widgets: [
-        { id: 'api', title: 'RSS Exchange Rates', type: 'api', icon: '🔌' },
-        { id: 'dataProduct', title: 'DST Dataset', type: 'dataProduct', icon: '📊' },
-        { id: 'documents', title: 'Audit Documents', type: 'documents', icon: '🗂️' }
-      ]
-    }
-  ];
+  const [hoveredWidget, setHoveredWidget] = useState(null);
+  const widgetCategories = getWidgetsByCategory();
 
   const handleDragStart = (e, widget) => {
     e.dataTransfer.setData('text/plain', JSON.stringify(widget));
@@ -32,20 +17,22 @@ const Sidebar = () => {
       </div>
 
       <div className="space-y-6">
-        {widgetCategories.map((category) => (
-          <div key={category.name}>
+        {Object.entries(widgetCategories).map(([categoryName, widgets]) => (
+          <div key={categoryName}>
             <h3 className="text-sm font-medium text-gray-300 mb-3">
-              {category.name}
+              {categoryName}
             </h3>
             <div className="space-y-2">
-              {category.widgets.map((widget) => (
+              {widgets.map((widget) => (
                 <div
                   key={widget.id}
-                  className="p-3 bg-gray-800/50 rounded-lg border border-gray-600
+                  className="relative p-3 bg-gray-800/50 rounded-lg border border-gray-600
                              hover:border-[#FF8000] hover:bg-gray-800/70
                              cursor-grab active:cursor-grabbing transition-all"
                   draggable
                   onDragStart={(e) => handleDragStart(e, widget)}
+                  onMouseEnter={() => setHoveredWidget(widget.id)}
+                  onMouseLeave={() => setHoveredWidget(null)}
                 >
                   <div className="flex items-center space-x-3">
                     <div className="w-8 h-8 bg-[#FF8000]/20 rounded flex items-center justify-center">
@@ -53,13 +40,35 @@ const Sidebar = () => {
                     </div>
                     <div>
                       <div className="text-sm font-medium text-white">
-                        {widget.title}
+                        {widget.name}
                       </div>
                       <div className="text-xs text-gray-400">
                         {widget.type}
                       </div>
                     </div>
                   </div>
+
+                  {/* Hover Tooltip */}
+                  {hoveredWidget === widget.id && (
+                    <div className="absolute left-full top-0 ml-2 w-72 z-50
+                                    bg-slate-800 text-slate-200 p-3 rounded shadow-lg
+                                    border border-gray-600">
+                      <div className="text-sm font-medium text-white mb-2">
+                        {widget.name}
+                      </div>
+                      <div className="text-xs text-gray-300 mb-3">
+                        {widget.description}
+                      </div>
+                      <div className="text-xs text-gray-400 mb-1">Example queries:</div>
+                      <div className="space-y-1">
+                        {widget.exampleQueries.map((query, index) => (
+                          <div key={index} className="text-xs text-[#FF8000]">
+                            • {query}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

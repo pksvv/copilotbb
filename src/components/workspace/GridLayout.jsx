@@ -13,7 +13,7 @@ const GridLayout = () => {
     const newWidget = {
       id: `${widgetData.type}-${Date.now()}`,
       type: widgetData.type,
-      title: widgetData.title,
+      title: widgetData.name || widgetData.title,
       icon: widgetData.icon,
       originalId: widgetData.id,
       isLoaded: true

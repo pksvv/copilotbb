@@ -1,20 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ChatContext } from '../../shared/context/ChatContext';
 
 const QuerySuggestions = ({ onQuerySelect }) => {
-  const suggestions = [
-    "What are tax provisions for FY24?",
-    "Which countries have DST rules?",
-    "Show EUR/INR exchange rate",
-    "GST threshold in India?"
+  const { suggestedQueries, availableWidgets } = useContext(ChatContext);
+
+  // Fallback queries when no widgets are active
+  const fallbackQueries = [
+    "What can this copilot help with?",
+    "How do I add widgets to get started?"
   ];
+
+  const displayQueries = suggestedQueries.length > 0 ? suggestedQueries : fallbackQueries;
 
   return (
     <div className="p-4 border-b border-gray-700">
       <h4 className="text-xs font-medium text-gray-400 mb-2">
-        Suggested Queries
+        {suggestedQueries.length > 0
+          ? `Suggested Queries (${availableWidgets.length} widgets)`
+          : 'Suggested Queries'
+        }
       </h4>
       <div className="flex flex-wrap gap-2">
-        {suggestions.map((suggestion, index) => (
+        {displayQueries.map((suggestion, index) => (
           <button
             key={index}
             onClick={() => onQuerySelect(suggestion)}

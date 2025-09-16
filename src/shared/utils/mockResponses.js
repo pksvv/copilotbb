@@ -70,6 +70,21 @@ export const generateMockResponse = (query, availableWidgets = []) => {
     };
   }
 
+  // Handle fallback queries
+  if (queryLower.includes('what can this copilot help') || queryLower.includes('help with')) {
+    return {
+      response: "I'm your **Tax Copilot**! I can help analyze financial data when you add widgets to your workspace. Available widgets include:\n\n• **Trial Balance** - Tax provisions and financial data\n• **OECD DST Tracker** - Digital services tax regulations\n• **RSS Exchange Rates** - Live currency exchange rates\n• **Tax FAQ** - Transfer pricing and GST guidance\n• **DST Dataset** - Digital tax collection data\n• **Audit Documents** - Document analysis and summaries",
+      citations: []
+    };
+  }
+
+  if (queryLower.includes('how do i add widgets') || queryLower.includes('get started')) {
+    return {
+      response: "To get started:\n\n1. **Browse the Widget Library** (left sidebar) and hover over widgets to see descriptions\n2. **Drag any widget** into the workspace canvas\n3. **Ask questions** using the suggested queries that appear\n4. **Create multiple chat sessions** using the '+ New' button\n\nTry dragging the **Trial Balance FY24** widget to analyze tax provisions!",
+      citations: []
+    };
+  }
+
   return {
     response: "I can help you analyze data from your workspace widgets. Try adding some widgets first, or ask about tax provisions, DST rules, exchange rates, or GST thresholds.",
     citations: []

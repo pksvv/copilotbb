@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react';
 import { generateMockResponse } from '../utils/mockResponses';
+import { getAllWidgetQueries } from '../../content/config/widgetMetadata';
 
 export const ChatContext = createContext();
 
@@ -14,6 +15,7 @@ export const ChatProvider = ({ children }) => {
   ]);
 
   const [availableWidgets, setAvailableWidgets] = useState([]);
+  const [suggestedQueries, setSuggestedQueries] = useState([]);
 
   const addMessage = (message) => {
     const newMessage = {
@@ -36,16 +38,27 @@ export const ChatProvider = ({ children }) => {
     }
   };
 
+  const updateSuggestedQueries = (widgets) => {
+    const queries = getAllWidgetQueries(widgets);
+    setSuggestedQueries(queries);
+  };
+
   const addWidget = (widget) => {
     setAvailableWidgets(prev => {
       const exists = prev.find(w => w.id === widget.id);
       if (exists) return prev;
-      return [...prev, widget];
+      const newWidgets = [...prev, widget];
+      updateSuggestedQueries(newWidgets);
+      return newWidgets;
     });
   };
 
   const removeWidget = (widgetId) => {
-    setAvailableWidgets(prev => prev.filter(w => w.id !== widgetId));
+    setAvailableWidgets(prev => {
+      const newWidgets = prev.filter(w => w.id !== widgetId);
+      updateSuggestedQueries(newWidgets);
+      return newWidgets;
+    });
   };
 
   return (
@@ -53,6 +66,7 @@ export const ChatProvider = ({ children }) => {
       messages,
       addMessage,
       availableWidgets,
+      suggestedQueries,
       addWidget,
       removeWidget
     }}>
