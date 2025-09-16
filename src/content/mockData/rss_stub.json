@@ -1,0 +1,48 @@
+{
+  "api_info": {
+    "service": "Rate Selection System (RSS)",
+    "version": "v2.1",
+    "environment": "mock",
+    "last_updated": "2024-12-01T10:30:00Z"
+  },
+  "exchange_rates": {
+    "base_currency": "USD",
+    "rates": {
+      "EUR": {
+        "rate": 0.9234,
+        "inverse_rate": 1.0829,
+        "timestamp": "2024-12-01T10:30:00Z",
+        "source": "RSS-MOCK"
+      },
+      "INR": {
+        "rate": 83.2500,
+        "inverse_rate": 0.0120,
+        "timestamp": "2024-12-01T10:30:00Z",
+        "source": "RSS-MOCK"
+      },
+      "GBP": {
+        "rate": 0.7891,
+        "inverse_rate": 1.2673,
+        "timestamp": "2024-12-01T10:30:00Z",
+        "source": "RSS-MOCK"
+      }
+    }
+  },
+  "derived_rates": {
+    "EUR_INR": {
+      "rate": 89.40,
+      "calculation": "EUR/USD * USD/INR",
+      "timestamp": "2024-12-01T10:30:00Z"
+    },
+    "GBP_INR": {
+      "rate": 105.48,
+      "calculation": "GBP/USD * USD/INR",
+      "timestamp": "2024-12-01T10:30:00Z"
+    }
+  },
+  "auth_status": {
+    "user_authorized": true,
+    "permissions": ["read_rates", "historical_data"],
+    "session_expires": "2024-12-01T18:30:00Z"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "faq_categories": [
+    {
+      "category": "Transfer Pricing",
+      "questions": [
+        {
+          "id": "tp_001",
+          "question": "What are TP documentation thresholds in India?",
+          "answer": "In India, TP documentation is required for international transactions exceeding INR 1 crore and domestic transactions exceeding INR 20 crores as per Rule 10D of Income Tax Rules.",
+          "source": "Income Tax Rules, Rule 10D",
+          "last_updated": "2024-01-15"
+        },
+        {
+          "id": "tp_002",
+          "question": "What is the penalty for non-compliance with TP regulations?",
+          "answer": "Penalty can range from 2% of the value of international transaction or INR 1 lakh, whichever is higher, under Section 271AA.",
+          "source": "Income Tax Act, Section 271AA",
+          "last_updated": "2024-01-15"
+        }
+      ]
+    },
+    {
+      "category": "India GST",
+      "questions": [
+        {
+          "id": "gst_001",
+          "question": "What is the GST threshold for mandatory registration in India?",
+          "answer": "GST registration is mandatory for businesses with turnover exceeding INR 40 lakhs for goods and INR 20 lakhs for services in most states.",
+          "source": "CGST Act 2017, Section 22",
+          "last_updated": "2024-01-15"
+        },
+        {
+          "id": "gst_002",
+          "question": "What are the GST rates for different categories?",
+          "answer": "GST rates are 0%, 5%, 12%, 18%, and 28% depending on the goods/services category. Essential items are often at lower rates.",
+          "source": "GST Rate Schedule",
+          "last_updated": "2024-01-15"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "total_questions": 4,
+    "last_updated": "2024-01-15",
+    "version": "1.0"
+  }
+}

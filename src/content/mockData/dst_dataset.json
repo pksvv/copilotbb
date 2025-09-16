@@ -1,0 +1,60 @@
+{
+  "dataset_info": {
+    "name": "Digital Services Tax Collections",
+    "source": "Tax Data Marketplace",
+    "version": "2024.1",
+    "coverage_period": "FY2023",
+    "last_updated": "2024-01-15"
+  },
+  "collections_by_country": [
+    {
+      "country_code": "FR",
+      "country_name": "France",
+      "collections_usd": 120000000,
+      "collections_local": 110000000,
+      "local_currency": "EUR",
+      "tax_rate": 0.03,
+      "implementation_date": "2019-01-01",
+      "status": "active"
+    },
+    {
+      "country_code": "IT",
+      "country_name": "Italy",
+      "collections_usd": 95000000,
+      "collections_local": 87000000,
+      "local_currency": "EUR",
+      "tax_rate": 0.03,
+      "implementation_date": "2020-01-01",
+      "status": "active"
+    },
+    {
+      "country_code": "ES",
+      "country_name": "Spain",
+      "collections_usd": 88000000,
+      "collections_local": 81000000,
+      "local_currency": "EUR",
+      "tax_rate": 0.03,
+      "implementation_date": "2021-01-01",
+      "status": "active"
+    },
+    {
+      "country_code": "UK",
+      "country_name": "United Kingdom",
+      "collections_usd": 156000000,
+      "collections_local": 125000000,
+      "local_currency": "GBP",
+      "tax_rate": 0.02,
+      "implementation_date": "2020-04-01",
+      "status": "active"
+    }
+  ],
+  "summary": {
+    "total_collections_usd": 459000000,
+    "countries_with_dst": 4,
+    "average_tax_rate": 0.0275,
+    "highest_collection": {
+      "country": "United Kingdom",
+      "amount_usd": 156000000
+    }
+  }
+}

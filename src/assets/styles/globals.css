@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  #root {
+    height: 100%;
+  }
+}
+
+@layer components {
+  .glassmorphism {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .widget-container {
+    @apply bg-gray-800/50 border border-gray-600 rounded-lg transition-all;
+  }
+
+  .widget-container:hover {
+    @apply border-orange-500 bg-gray-800/70;
+  }
+
+  .financial-card {
+    @apply bg-gray-900/50 rounded border border-gray-600 p-4;
+  }
+
+  .chat-message {
+    @apply p-3 bg-gray-800/50 rounded-lg border border-gray-600;
+  }
+
+  .sidebar-item {
+    @apply p-3 bg-gray-800/50 rounded-lg border border-gray-600 hover:border-orange-500 hover:bg-gray-800/70 cursor-grab active:cursor-grabbing transition-all;
+  }
+}
+
+@layer utilities {
+  .drag-handle {
+    cursor: grab;
+  }
+
+  .drag-handle:active {
+    cursor: grabbing;
+  }
+
+  .text-financial-primary {
+    color: #FF8000;
+  }
+
+  .bg-financial-primary {
+    background-color: #FF8000;
+  }
+
+  .border-financial-primary {
+    border-color: #FF8000;
+  }
+}

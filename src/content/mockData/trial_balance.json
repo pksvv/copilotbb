@@ -1,0 +1,42 @@
+{
+  "company": "Sample Corp",
+  "fiscal_year": "FY24",
+  "currency": "USD",
+  "reporting_date": "2024-03-31",
+  "tax_provisions": {
+    "current_tax_provision": {
+      "amount": 14200000,
+      "description": "Current year tax liability"
+    },
+    "deferred_tax_expense": {
+      "amount": 2300000,
+      "description": "Deferred tax expense for timing differences"
+    },
+    "total_provisions": {
+      "amount": 16500000,
+      "description": "Total tax provisions for FY24"
+    }
+  },
+  "breakdown": [
+    {
+      "jurisdiction": "United States",
+      "current_tax": 8500000,
+      "deferred_tax": 1200000
+    },
+    {
+      "jurisdiction": "European Union",
+      "current_tax": 3200000,
+      "deferred_tax": 650000
+    },
+    {
+      "jurisdiction": "Asia Pacific",
+      "current_tax": 2500000,
+      "deferred_tax": 450000
+    }
+  ],
+  "metadata": {
+    "prepared_by": "Tax Department",
+    "reviewed_by": "CFO",
+    "audit_status": "Reviewed"
+  }
+}
