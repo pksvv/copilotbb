@@ -1,4 +1,4 @@
-# Finance GenAI Strategy Portal
+# Finance Copilot Studio
 
 A modern, OpenBB-style widget dashboard for financial copilots built with React and TailwindCSS.
 
@@ -149,4 +149,4 @@ src/
 
 ---
 
-Built with ❤️ by the Finance GenAI Strategy Team
+Built with ❤️ by the Finance Copilot Studio Team

@@ -10,13 +10,15 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="w-80 bg-[#1a1a1d] border-r border-gray-700 p-4">
-      <div className="mb-6">
-        <h2 className="text-lg font-semibold text-white mb-2">Widget Library</h2>
-        <p className="text-sm text-gray-400">Drag widgets to workspace</p>
-      </div>
+    <aside className="w-80 bg-[#1a1a1d] border-r border-gray-700 min-h-screen">
+      <div className="p-4">
+        <div className="mb-6">
+          <h2 className="text-lg font-semibold text-white mb-2">Widget Library</h2>
+          <p className="text-xs text-gray-500 mb-1">Registered widgets are displayed below:</p>
+          <p className="text-sm text-gray-400">Drag widgets to workspace</p>
+        </div>
 
-      <div className="space-y-6">
+        <div className="space-y-6">
         {Object.entries(widgetCategories).map(([categoryName, widgets]) => (
           <div key={categoryName}>
             <h3 className="text-sm font-medium text-gray-300 mb-3">
@@ -50,12 +52,17 @@ const Sidebar = () => {
 
                   {/* Hover Tooltip */}
                   {hoveredWidget === widget.id && (
-                    <div className="absolute left-full top-0 ml-2 w-72 z-50
-                                    bg-slate-800 text-slate-200 p-3 rounded shadow-lg
+                    <div className="absolute left-full top-0 ml-2 w-80 z-50
+                                    bg-slate-800 text-slate-200 p-4 rounded-lg shadow-xl
                                     border border-gray-600">
-                      <div className="text-sm font-medium text-white mb-2">
+                      <div className="text-sm font-medium text-white mb-1">
                         {widget.name}
                       </div>
+                      {widget.subheading && (
+                        <div className="text-xs text-[#FF8000] mb-2 italic">
+                          {widget.subheading}
+                        </div>
+                      )}
                       <div className="text-xs text-gray-300 mb-3">
                         {widget.description}
                       </div>
@@ -74,6 +81,7 @@ const Sidebar = () => {
             </div>
           </div>
         ))}
+        </div>
       </div>
     </aside>
   );

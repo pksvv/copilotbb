@@ -2,8 +2,19 @@ import trialBalanceData from '../../content/mockData/trial_balance.json';
 import faqData from '../../content/mockData/faq.json';
 import rssData from '../../content/mockData/rss_stub.json';
 import dstData from '../../content/mockData/dst_dataset.json';
+import { getDetailedAnswerForQuery, getWidgetForQuery } from '../../content/config/widgetMetadata';
 
 export const generateMockResponse = (query, availableWidgets = []) => {
+  // First, try to get detailed answer from metadata
+  const detailedAnswer = getDetailedAnswerForQuery(query, availableWidgets);
+  if (detailedAnswer) {
+    return {
+      response: detailedAnswer.response,
+      citations: detailedAnswer.citations || []
+    };
+  }
+
+  // Fallback to legacy logic for backward compatibility
   const widgetTypes = availableWidgets.map(w => w.type);
   const queryLower = query.toLowerCase();
 

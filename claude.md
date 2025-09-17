@@ -1,4 +1,4 @@
-# Finance GenAI Copilot Prototype Portal - Development Guide
+# Finance Copilot Studio - Development Guide
 
 ## Project Overview
 

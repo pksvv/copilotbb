@@ -1,13 +1,13 @@
 import React from 'react';
 import BaseWidget from './base/BaseWidget';
 
-const DocumentStorageWidget = ({ title = "Audit Documents" }) => {
+const DocumentStorageWidget = ({ title = "Tax Digital Document Storage" }) => {
   return (
     <BaseWidget title={title}>
       <div className="bg-gray-900/50 rounded border border-gray-600 p-3 w-full">
         <div className="flex items-center space-x-2 mb-3 min-w-0">
           <span className="text-xs text-gray-400 flex-shrink-0">🗂️</span>
-          <span className="text-xs text-gray-300 truncate">Sales & Use Tax + Docs</span>
+          <span className="text-xs text-gray-300 truncate">Tax Digital Document Storage</span>
         </div>
         <div className="space-y-2 w-full">
           <div className="text-xs text-gray-400 mb-2">Recent Documents:</div>

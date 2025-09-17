@@ -5,6 +5,7 @@ import FaqWidget from '../widgets/FaqWidget';
 import ApiIntegrationWidget from '../widgets/ApiIntegrationWidget';
 import DataProductWidget from '../widgets/DataProductWidget';
 import DocumentStorageWidget from '../widgets/DocumentStorageWidget';
+import SalesUseTaxDataWidget from '../widgets/SalesUseTaxDataWidget';
 
 const WidgetContainer = ({ widget, onRemove }) => {
   const getWidgetComponent = () => {
@@ -21,6 +22,8 @@ const WidgetContainer = ({ widget, onRemove }) => {
         return <DataProductWidget {...widget} />;
       case 'documents':
         return <DocumentStorageWidget {...widget} />;
+      case 'salesUseTaxData':
+        return <SalesUseTaxDataWidget {...widget} />;
       default:
         return <div>Unknown widget type</div>;
     }

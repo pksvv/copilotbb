@@ -1,4 +1,4 @@
-# Finance GenAI Portal - Deployment Guide
+# Finance Copilot Studio - Deployment Guide
 
 ## 🚀 Quick Deployment
 
@@ -46,7 +46,7 @@ No environment variables required for basic deployment.
 
 ## 🌐 Access Your Portal
 
-After deployment, your Finance GenAI Portal will be available at:
+After deployment, your Finance Copilot Studio will be available at:
 ```
 https://yourusername.github.io/copilotbb
 ```

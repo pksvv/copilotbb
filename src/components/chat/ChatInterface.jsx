@@ -3,7 +3,7 @@ import MessageList from './MessageList';
 import QuerySuggestions from './QuerySuggestions';
 import { ChatContext } from '../../shared/context/ChatContext';
 
-const ChatInterface = () => {
+const ChatInterface = ({ copilotName = "Global Tax Copilot" }) => {
   const [inputValue, setInputValue] = useState('');
   const { availableWidgets } = useContext(ChatContext);
 
@@ -16,7 +16,7 @@ const ChatInterface = () => {
         {
           id: 1,
           type: 'system',
-          content: 'Welcome to the Tax Copilot! Add widgets to your workspace to get started.',
+          content: `Welcome to the ${copilotName}! Add widgets to your workspace to get started.`,
           timestamp: new Date()
         }
       ]
@@ -81,7 +81,7 @@ const ChatInterface = () => {
         {
           id: Date.now(),
           type: 'system',
-          content: 'Welcome to the Tax Copilot! Add widgets to your workspace to get started.',
+          content: `Welcome to the ${copilotName}! Add widgets to your workspace to get started.`,
           timestamp: new Date()
         }
       ]
@@ -111,7 +111,7 @@ const ChatInterface = () => {
               {
                 id: Date.now(),
                 type: 'system',
-                content: 'Chat cleared. Welcome back to the Tax Copilot!',
+                content: `Chat cleared. Welcome back to the ${copilotName}!`,
                 timestamp: new Date()
               }
             ]
@@ -123,11 +123,11 @@ const ChatInterface = () => {
   const activeSession = getActiveSession();
 
   return (
-    <div className="h-full flex flex-col bg-[#1a1a1d]">
+    <div className="min-h-screen flex flex-col bg-[#1a1a1d]">
       {/* Chat Header with Sessions */}
-      <div className="border-b border-gray-700">
+      <div className="border-b border-gray-700 flex-shrink-0">
         <div className="flex items-center justify-between p-4 pb-2">
-          <h2 className="text-lg font-semibold text-white">Tax Copilot</h2>
+          <h2 className="text-lg font-semibold text-white">{copilotName}</h2>
           <div className="flex items-center space-x-2">
             <button
               onClick={clearActiveSession}
@@ -193,7 +193,7 @@ const ChatInterface = () => {
       </div>
 
       {/* Input Area */}
-      <div className="border-t border-gray-700">
+      <div className="border-t border-gray-700 flex-shrink-0">
         <QuerySuggestions onQuerySelect={handleSendMessage} />
         <div className="p-4">
           <div className="flex space-x-2">
